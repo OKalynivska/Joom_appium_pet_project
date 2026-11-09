@@ -38,4 +38,5 @@ public class ProfileScreen extends BaseScreen{
         log.info("Log In button clicked");
         return new SignUpPopUpScreen(driver);
     }
+
 }
