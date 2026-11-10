@@ -25,22 +25,14 @@ public class RegistrationUserTest extends BaseTest {
     @Test
     @DisplayName("User registration")
     @TestDescription("Close advertisement, open login screen and sign up")
-    public void testRegistrationUser() throws InterruptedException {
+    public void testRegistrationUser(){
         JoomHomeScreen joomHomeScreen = new JoomHomeScreen(driver);
-        Thread.sleep(5000);
-        joomHomeScreen.closeAdvertisement();
-        Thread.sleep(2000);
-        joomHomeScreen.clickEnableButton()
-                .clickDoNotAllowButton()
-                //.clickShopNowButton()
-                .openLoginScreen()
+        joomHomeScreen.openLoginScreen()
                 .clickOnLogInButton()
                 .clickOnShowMoreLoginOptions()
                 .clickOnLoginEmailButton()
                 .clickOnSignUpButton()
                 .newUserRegistration(userData)
                 .verifyUserRegistered(NEW_USER_DATA);
-
-
     }
 }

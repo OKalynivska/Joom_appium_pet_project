@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import mobile.Initializer;
 import mobile.helper.Helper;
+import mobile.screens.JoomHomeScreen;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -18,6 +19,13 @@ public class BaseTest {
         driver= Initializer.getDriver();
         Helper.setDriver(driver);
         Thread.sleep(2000);
+
+        JoomHomeScreen joomHomeScreen = new JoomHomeScreen(driver);
+        Thread.sleep(5000);
+        joomHomeScreen.closeAdvertisement();
+        Thread.sleep(2000);
+        joomHomeScreen.clickEnableButton()
+                .clickDoNotAllowButton();
     }
 
     @AfterEach
