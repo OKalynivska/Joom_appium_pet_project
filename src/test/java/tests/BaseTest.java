@@ -9,6 +9,8 @@ import mobile.screens.JoomHomeScreen;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import static mobile.Initializer.quitDriver;
+
 @Slf4j
 public class BaseTest {
     protected static AppiumDriver driver;
@@ -31,6 +33,6 @@ public class BaseTest {
     @AfterEach
     public void tearDown(){
         log.info("Closing driver");
-        Initializer.quitDriver();
+        quitDriver();
     }
 }

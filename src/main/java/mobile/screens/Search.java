@@ -1,6 +1,8 @@
 package mobile.screens;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +11,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 import static mobile.locators.SearchLocators.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.doesNotHave;
 
 @Slf4j
 public class Search extends BaseScreen {
@@ -31,6 +34,10 @@ public class Search extends BaseScreen {
 
     @AndroidFindBy(xpath = CATEGORY_ELEMENT)
     private WebElement category;
+
+    @AndroidFindAll({@AndroidBy(xpath = CATEGORY_ELEMENT)})
+    private List<WebElement> searchedItems;
+
 
     public Search enterSearchValue(SearchTitle searchTitle){
         clickOnElement(searchField);
@@ -71,6 +78,18 @@ public class Search extends BaseScreen {
                 .isEmpty();
 
         log.info("Category '{}' is not present", searchTitle.getValue());
+        return this;
+    }
+
+    public Search clickOnSearchedItem(){
+        clickOnElement(searchedItem);
+        log.info("Searched item clicked");
+        return this;
+    }
+
+    public Search verifyListItemsIsNotEmpty(){
+        assertThat(searchedItems.size()).as("Size of searched items is empty").isGreaterThan(0);
+        log.info("Searched items are not empty");
         return this;
     }
 }
