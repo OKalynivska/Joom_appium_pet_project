@@ -32,4 +32,15 @@ public class SearchTest extends BaseTest {
                 .verifyCategoryNotPresent(SEARCH_TITLE)
                 .verifySearchedItemNotPresent(CATEGORY_ITEM);
     }
+
+    @Test
+    @DisplayName("Search category is not empty")
+    @TestDescription("Close advertisement, open search screen, search element, category contains items")
+    public void testSearchCategoryNotEmpty() {
+        JoomHomeScreen joomHomeScreen = new JoomHomeScreen(driver);
+        joomHomeScreen.openSearchScreen()
+                .enterSearchValue(CATEGORY_ITEM)
+                .clickOnSearchedItem()
+                .verifyListItemsIsNotEmpty();
+    }
 }
