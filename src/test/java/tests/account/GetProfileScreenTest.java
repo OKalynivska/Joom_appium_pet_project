@@ -13,7 +13,7 @@ public class GetProfileScreenTest extends BaseTest {
 
     @Test
     @DisplayName("Open Login Screen")
-    @TestDescription("Close advertisement, skip the quiz, open login screen")
+    @TestDescription("Close advertisement, open login screen")
     public void testGetLoginScreen() throws InterruptedException {
         JoomHomeScreen joomHomeScreen = new JoomHomeScreen(driver);
         Thread.sleep(5000);

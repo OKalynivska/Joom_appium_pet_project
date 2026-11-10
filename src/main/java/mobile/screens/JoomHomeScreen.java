@@ -9,6 +9,8 @@ import mobile.locators.JoomHomeLocators;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import static mobile.locators.JoomHomeLocators.SEARCH_BUTTON;
+
 @Slf4j
 @Setter
 public class JoomHomeScreen extends BaseScreen {
@@ -23,6 +25,9 @@ public class JoomHomeScreen extends BaseScreen {
 
     @AndroidFindBy(xpath=JoomHomeLocators.SHOP_NOW_BUTTON)
     private WebElement shopNowButton;
+
+    @AndroidFindBy(id=SEARCH_BUTTON)
+    private WebElement searchButton;
 
 
     public JoomHomeScreen(AppiumDriver driver) {
@@ -71,5 +76,12 @@ public class JoomHomeScreen extends BaseScreen {
         clickOnElement(shopNowButton);
         log.info("Shop now button clicked");
         return this;
+    }
+
+    public Search openSearchScreen() {
+        waitUntilElementIsVisible(searchButton);
+        clickOnElement(searchButton);
+        log.info("search screen opened");
+        return new Search(driver);
     }
 }
