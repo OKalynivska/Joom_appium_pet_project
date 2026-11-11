@@ -6,5 +6,6 @@ public class SearchLocators {
     public static final String SEARCHED_ITEM ="//android.widget.TextView[@resource-id='com.joom:id/row_layout_title' and @text='Books']";
     public static final String CATEGORY_ELEMENT="//android.widget.TextView[@text='Categories']";
     public static final String CATEGORY_SEARCHED_ELEMENTS="//android.widget.GridView[@resource-id='com.joom:id/feed_recycler']/androidx.compose.ui.platform.ComposeView[2]/android.view.View/android.view.View";
+    public static final String ADD_TO_FAVOURITES_BUTTONS="//android.widget.ImageView[@content-desc='Add to favourites']";
 
 }

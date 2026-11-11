@@ -9,7 +9,7 @@ import mobile.locators.JoomHomeLocators;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import static mobile.locators.JoomHomeLocators.SEARCH_BUTTON;
+import static mobile.locators.JoomHomeLocators.*;
 
 @Slf4j
 @Setter
@@ -28,6 +28,15 @@ public class JoomHomeScreen extends BaseScreen {
 
     @AndroidFindBy(id=SEARCH_BUTTON)
     private WebElement searchButton;
+
+    @AndroidFindBy(id= ADD_FAVOURITES_BUTTON)
+    private WebElement addToFavourites;
+
+    @AndroidFindBy(xpath=SEARCH_INPUT_FIELD)
+    private WebElement searchInputField;
+
+    @AndroidFindBy(className = GET_THE_BEST_DEALS_BUTTON)
+    private WebElement getTheBestDealButton;
 
 
     public JoomHomeScreen(AppiumDriver driver) {
@@ -83,5 +92,24 @@ public class JoomHomeScreen extends BaseScreen {
         clickOnElement(searchButton);
         log.info("search screen opened");
         return new Search(driver);
+    }
+
+    public FavouritesScreen openFavorites() {
+        waitUntilElementIsVisible(addToFavourites);
+        clickOnElement(addToFavourites);
+        log.info("Add to favourites screen opened");
+        return new FavouritesScreen(driver);
+    }
+
+    public JoomHomeScreen clickOnSearchInputField() {
+        clickOnElement(searchInputField);
+        log.info("Search input field clicked");
+        return this;
+    }
+
+    public JoomHomeScreen clickOnGetTheBestDealButton() {
+        clickOnElement(getTheBestDealButton);
+        log.info("Get the best deal button clicked");
+        return this;
     }
 }
