@@ -8,7 +8,6 @@ import tests.BaseTest;
 
 import static mobile.enums.SearchTitle.*;
 
-
 public class SearchTest extends BaseTest {
 
     @Test

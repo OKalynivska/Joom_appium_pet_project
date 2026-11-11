@@ -6,5 +6,11 @@ public class JoomHomeLocators {
     public static final String SEARCH_BUTTON="com.joom:id/bottom_bar_search";
     public static final String DONT_ALLOW_BUTTON="//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_deny_button']";
     public static final String SHOP_NOW_BUTTON="//android.widget.Button";
+    public static final String ADD_FAVOURITES_BUTTON ="com.joom:id/bottom_bar_favorites";
+    public static final String SEARCH_INPUT_FIELD ="//android.widget.TextView[@text='Search on Joom']";
+
+
+    //advertisement
+    public static final String GET_THE_BEST_DEALS_BUTTON ="android.widget.Button";
 
 }

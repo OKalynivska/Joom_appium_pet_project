@@ -35,8 +35,11 @@ public class Search extends BaseScreen {
     @AndroidFindBy(xpath = CATEGORY_ELEMENT)
     private WebElement category;
 
-    @AndroidFindAll({@AndroidBy(xpath = CATEGORY_ELEMENT)})
+    @AndroidFindAll({@AndroidBy(xpath = CATEGORY_SEARCHED_ELEMENTS)})
     private List<WebElement> searchedItems;
+
+    @AndroidFindAll({@AndroidBy(xpath = ADD_TO_FAVOURITES_BUTTONS)})
+    private List<WebElement> addToFavouritesButtons;
 
 
     public Search enterSearchValue(SearchTitle searchTitle){
@@ -90,6 +93,13 @@ public class Search extends BaseScreen {
     public Search verifyListItemsIsNotEmpty(){
         assertThat(searchedItems.size()).as("Size of searched items is empty").isGreaterThan(0);
         log.info("Searched items are not empty");
+        return this;
+    }
+
+    public Search clickOnAddToFavouritesFirstButton(){
+        waitUntilElementIsVisible(addToFavouritesButtons.get(0));
+        clickOnElement(addToFavouritesButtons.get(0));
+        log.info("Add to favourites first button clicked");
         return this;
     }
 }

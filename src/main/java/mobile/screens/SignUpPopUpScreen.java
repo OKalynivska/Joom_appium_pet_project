@@ -119,4 +119,10 @@ public class SignUpPopUpScreen extends BaseScreen {
         log.info("Verified '{}' text is visible", accountTitle.getValue());
     }
 
+    public SignUpPopUpScreen logIn(String email,String password) {
+        enterEmail(email);
+        enterPassword(password);
+        clickOnLoginButton();
+        return this;
+    }
 }
